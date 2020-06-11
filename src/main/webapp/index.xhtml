@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:jsf="http://xmlns.jcp.org/jsf"
+>
+<h:head>
+	<title>Demo</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+</h:head>
+<h:body styleClass="container">
+	<h4>This is a demo page</h4>
+	<div class="card">
+		<h:form>
+			<div class="card-header">Submitting this form will cause a validation error</div>
+			<div class="card-body">
+				<div class="form-group">
+					<label for="text">Text</label>
+					<h:inputText id="text" value="#{backingBean.text}" disabled="true" required="true" styleClass="form-control" />
+					<h:message for="text" styleClass="form-text"></h:message>
+				</div>
+			</div>
+			<div class="card-footer">
+				<button jsf:action="#{backingBean.submit()}" class="btn btn-primary">Submit</button>
+			</div>
+		</h:form>
+	</div>
+	<div class="card mt-5">
+		<div class="card-header">Submitting this form will cause an NPE</div>
+		<h:form>
+			<div class="card-body">
+				<div class="form-group">
+					<label for="checkbox">Text</label>
+					<h:selectBooleanCheckbox id="checkbox" value="#{backingBean.foo}" disabled="true" styleClass="form-control" />
+					<h:message for="checkbox" />
+				</div>
+			</div>
+			<div class="card-footer">
+				<button jsf:action="#{backingBean.submit()}" class="btn btn-primary">Submit</button>
+			</div>
+		</h:form>
+	</div>
+</h:body>
+</html>
